@@ -28,14 +28,14 @@ public class FileFixer {
             }
             csvReader.close();
         }
-        File toBeRenamed = new File("./filesToRename/e.pdf");
-        renameFile(toBeRenamed, "f");
+         File toBeRenamed = new File("./filesToRename/e.pdf");
+         renameFile(toBeRenamed, "f");
 
     }
 
     private static void renameFile(File toBeRenamed, String newName) throws Exception{
         //create new path object from toBeRenamed
         Path toBeRenamedPath = Paths.get(toBeRenamed.getPath());
-        Files.move(toBeRenamedPath, toBeRenamedPath.resolveSibling("\\renamedFiles\\" + newName + ".pdf"), StandardCopyOption.ATOMIC_MOVE);
+        Files.copy(toBeRenamedPath, (new File("./filesToRename/renamedFiles/" + newName + ".pdf").toPath()), StandardCopyOption.REPLACE_EXISTING);
     }
 }
