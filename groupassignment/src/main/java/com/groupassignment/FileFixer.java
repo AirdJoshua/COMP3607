@@ -3,7 +3,7 @@ package com.groupassignment;
 import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.FileWriter;
+//import java.io.FileWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -52,28 +52,26 @@ public class FileFixer {
         Files.copy(toBeRenamedPath, (new File("./filesToRename/renamedFiles/" + newName + ".pdf").toPath()), StandardCopyOption.REPLACE_EXISTING);
     }
 
-    private static void missingSubmissions(ArrayList<Student> students){  //checks for missing submissions (requires a list of student submissions)
-        /*
-        ArrayList<Student> missing = new ArrayList<Student>();
-        bool found;
-        for(Student s: students){
-            studentID = s.getIdNumber()
-            found = false;
-            while not end of the list of files
-                pull ID section of convention2 name
-                    if studentID.equals(ID);
-                        found == true;
-            if(found == false)
-                missing.add(s);
-        }
-         //if she wants us to output it to a file
-        File missingSubmissions = new File("./missingSubmissions.txt");
-        FileWriter fw = new FileWriter("missingSubmissions.txt");
-        for(Student s: missing){
-            fw.write(s.getIdNumber() + " " + s.getFullName() + "\n");
-        }
-        */ 
-    }
+    // private static void missingSubmissions(ArrayList<Student> students){  //checks for missing submissions (requires a list of student submissions)
+    //     ArrayList<Student> missing = new ArrayList<Student>();
+    //     bool found;
+    //     for(Student s: students){
+    //         studentID = s.getIdNumber()
+    //         found = false;
+    //         while not end of the list of files
+    //             pull ID section of convention2 name
+    //                 if studentID.equals(ID);
+    //                     found == true;
+    //         if(found == false)
+    //             missing.add(s);
+    //     }
+    //      //if she wants us to output it to a file
+    //     File missingSubmissions = new File("./missingSubmissions.txt");
+    //     FileWriter fw = new FileWriter("missingSubmissions.txt");
+    //     for(Student s: missing){
+    //         fw.write(s.getIdNumber() + " " + s.getFullName() + "\n");
+    //     }
+    // }
 
     private static ArrayList<File> getFilesFromFolder(){
         File folder = new File("./filesToRename");

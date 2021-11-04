@@ -28,8 +28,10 @@ public class Rename {
         Student student = findStudent(fullname);
         if(student != null){
             newFilename = student.getFullName()+"_"+ student.getIdNumber()+"_"+"assignSubFile"+"_"+originalName+".pdf";
+            scan.close();
             return newFilename;
         }
+        scan.close();
         return "student not found";
     }
 
