@@ -1,47 +1,40 @@
+
+import java.util.ArrayList;
 import java.util.Scanner;
 public class Rename {
     private String oldFilename;
-
-    public Rename(String oldFilename) {
+    private ArrayList<Student> list;
+    public Rename(String oldFilename, ArrayList<Student> list) {
         this.oldFilename = oldFilename;
+        this.list = list;
     }
 
     public String toNewConvection(){
-        String name1, name2;
+        String name1;
+        String name2;
+        String fullname;
         String newFilename;
         String originalName;
-        String assignSubFile = null;
         Scanner scan = new Scanner(oldFilename);
         scan.useDelimiter("_");
         name1 = scan.next();
         name2 = scan.next();
+        fullname = name1+name2;
         originalName = scan.next();
-        newFilename = name1+" "+name2 +"_"+ studentID+"_"+assignSubFile+"_"+originalName+".pdf";
-
-        return newFilename;
+        Student student = findStudent(fullname);
+        if(student != null){
+            newFilename = student.getFullName()+"_"+ student.getIdNumber()+"_"+"assignSubFile"+"_"+originalName+".pdf";
+            return newFilename;
+        }
+        return "student not found";
     }
 
-    //Assumption that Collection of Students
-    /* File name get;
-    find the student
-    use parsing to separate convection 1 to convection 2
-    Covection 1 separates into
-    int randomCode  randomCode1 and 2
-    usedelimiter (_)
-    String name1
-    usedelimiter (_)
-    String name2
-    usedelimiter (_)
-    String originalName    select everything even if the original file name has white spaces
-    usedelimiter (_)
-    int randomCode   randomCode3 and 4
-
-    String Name1
-    String Name2
-    String assignSubFile
-    int StudentID;
-
-    newFilename = Name1+" "+Name2 +"_"+ studentID+"_"+assignSubFile+"_"+originalName+".pdf";
-
-    */
+    private Student findStudent(String fullname){
+        for(Student s: list){
+            if(s.getFullName().equals(fullname)){
+                return s;
+            }
+        }
+        return null;
+    }
 }
