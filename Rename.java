@@ -1,15 +1,17 @@
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Rename {
-    private String oldFilename;
+    private File oldFilename;
     private ArrayList<Student> list;
-    public Rename(String oldFilename, ArrayList<Student> list) {
+    public Rename(File oldFilename, ArrayList<Student> list) {
         this.oldFilename = oldFilename;
         this.list = list;
     }
 
-    public String toNewConvection(){
+    public String toNewConvection() throws FileNotFoundException{
         String name1;
         String name2;
         String fullname;
