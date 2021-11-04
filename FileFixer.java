@@ -30,9 +30,14 @@ public class FileFixer {
             csvReader.close();
         }
 
+        ArrayList<File> pdfFiles = new ArrayList<File>();
 
-          File toBeRenamed = new File("./filesToRename/e.pdf");
-          renameAndMoveFile(toBeRenamed, "f");
+        pdfFiles = getFilesFromFolder();
+
+        for(File file: pdfFiles){
+            File toBeRenamed = new File("./filesToRename/" + file.getName());
+            renameAndMoveFile(toBeRenamed, "asdasd");
+        }   
     }
 
     // private static void nameToConvention2(Student student, File toBeRenamed){
@@ -65,7 +70,20 @@ public class FileFixer {
         for(Student s: missing){
             fw.write(s.getIdNumber() + " " + s.getFullName() + "\n");
         }
-        */
-        
+        */ 
+    }
+
+    private static ArrayList<File> getFilesFromFolder(){
+        File folder = new File("./filesToRename");
+        ArrayList<File> pdfFiles = new ArrayList<File>();
+
+        File[] files = folder.listFiles();
+
+        for(File file: files){
+            if(file.getName().contains(".pdf")){
+                pdfFiles.add(file);
+            }
+        }
+        return pdfFiles;
     }
 }
