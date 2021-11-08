@@ -12,13 +12,14 @@ import java.util.ArrayList;
 
 public class FileFixer {
     public static void main(String[] args) throws Exception{
-        File csvFile = new File("./testSheet.csv");
+        String csvFilePath = "testSheet.csv";
+        File csvFile = new File(csvFilePath);
         ArrayList<Student> students = new ArrayList<Student>();
         String row;
 
         //if csvFile exists
         if (csvFile.isFile()) {
-            BufferedReader csvReader = new BufferedReader(new FileReader("./testSheet.csv"));
+            BufferedReader csvReader = new BufferedReader(new FileReader(csvFilePath));
             
             //read and discard first line
             csvReader.readLine();
@@ -37,7 +38,7 @@ public class FileFixer {
         pdfFiles = getFilesFromFolder();
 
         for(File file: pdfFiles){
-            File toBeRenamed = new File("./filesToRename/" + file.getName());
+            File toBeRenamed = new File("filesToRename/" + file.getName());
             renameAndMoveFile(toBeRenamed, "asdasd");
         }   
     }
@@ -49,7 +50,7 @@ public class FileFixer {
     private static void renameAndMoveFile(File toBeRenamed, String newName) throws Exception{
         //create new path object from toBeRenamed
         Path toBeRenamedPath = Paths.get(toBeRenamed.getPath());
-        Files.copy(toBeRenamedPath, (new File("./filesToRename/renamedFiles/" + newName + ".pdf").toPath()), StandardCopyOption.REPLACE_EXISTING);
+        Files.copy(toBeRenamedPath, (new File("filesToRename/renamedFiles/" + newName + ".pdf").toPath()), StandardCopyOption.REPLACE_EXISTING);
     }
 
     // private static void missingSubmissions(ArrayList<Student> students){  //checks for missing submissions (requires a list of student submissions)
@@ -74,7 +75,7 @@ public class FileFixer {
     // }
 
     private static ArrayList<File> getFilesFromFolder(){
-        File folder = new File("./filesToRename");
+        File folder = new File("filesToRename");
         ArrayList<File> pdfFiles = new ArrayList<File>();
 
         File[] files = folder.listFiles();
