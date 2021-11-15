@@ -12,35 +12,35 @@ import java.util.ArrayList;
 
 public class FileFixer {
     public static void main(String[] args) throws Exception{
-        String csvFilePath = "testSheet.csv";
-        File csvFile = new File(csvFilePath);
-        ArrayList<Student> students = new ArrayList<Student>();
-        String row;
+        // String csvFilePath = "testSheet.csv";
+        // File csvFile = new File(csvFilePath);
+        // ArrayList<Student> students = new ArrayList<Student>();
+        // String row;
 
-        //if csvFile exists
-        if (csvFile.isFile()) {
-            BufferedReader csvReader = new BufferedReader(new FileReader(csvFilePath));
+        // //if csvFile exists
+        // if (csvFile.isFile()) {
+        //     BufferedReader csvReader = new BufferedReader(new FileReader(csvFilePath));
             
-            //read and discard first line
-            csvReader.readLine();
+        //     //read and discard first line
+        //     csvReader.readLine();
             
-            //store the data from csvFile into an ArrayList of type student
-            while ((row = csvReader.readLine()) != null) {
-                String[] data = row.split(",");
-                Student student = new Student(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9]);
-                students.add(student);
-            }
-            csvReader.close();
-        }
+        //     //store the data from csvFile into an ArrayList of type student
+        //     while ((row = csvReader.readLine()) != null) {
+        //         String[] data = row.split(",");
+        //         Student student = new Student(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9]);
+        //         students.add(student);
+        //     }
+        //     csvReader.close();
+        // }
 
-        ArrayList<File> pdfFiles = new ArrayList<File>();
+        // ArrayList<File> pdfFiles = new ArrayList<File>();
 
-        pdfFiles = getFilesFromFolder();
+        // pdfFiles = getFilesFromFolder();
 
-        for(File file: pdfFiles){
-            File toBeRenamed = new File("filesToRename/" + file.getName());
-            renameAndMoveFile(toBeRenamed, "asdasd");
-        }   
+        // for(File file: pdfFiles){
+        //     File toBeRenamed = new File("filesToRename/" + file.getName());
+        //     renameAndMoveFile(toBeRenamed, "asdasd");
+        // }   
     }
 
     // private static void nameToConvention2(Student student, File toBeRenamed){
