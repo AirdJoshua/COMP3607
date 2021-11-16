@@ -14,7 +14,7 @@ public class ChangeName {
         this.list = students;
     }
 
-    public String toNewConvection() throws FileNotFoundException{
+    public String toNewConvention() throws FileNotFoundException{
         String name1;
         String name2;
         String fullname;

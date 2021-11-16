@@ -44,19 +44,15 @@ public class FileFixer {
 
         for(File file: pdfFiles){
             File toBeRenamed = new File("filesToRename/" + file.getName());
-            renameAndMoveFile(toBeRenamed, "asdasd");
+            //renameAndMoveFile(toBeRenamed, "asdasd");
         }   
     }
 
-    private static void nameToConvention2(Student student, File toBeRenamed){
-        String conv2 = student.getFullName() + student.getIdNumber() + "assignsubmission_file_" + toBeRenamed.getName();
-    }
-
-    private static void renameAndMoveFile(File toBeRenamed, String newName) throws Exception{
-        //create new path object from toBeRenamed
-        Path toBeRenamedPath = Paths.get(toBeRenamed.getPath());
-        Files.copy(toBeRenamedPath, (new File("filesToRename/renamedFiles/" + newName + ".pdf").toPath()), StandardCopyOption.REPLACE_EXISTING);
-    }
+    // private static void renameAndMoveFile(File toBeRenamed, String newName) throws Exception{
+    //     //create new path object from toBeRenamed
+    //     Path toBeRenamedPath = Paths.get(toBeRenamed.getPath());
+    //     Files.copy(toBeRenamedPath, (new File("filesToRename/renamedFiles/" + newName + ".pdf").toPath()), StandardCopyOption.REPLACE_EXISTING);
+    // }
 
     // private static void missingSubmissions(ArrayList<Student> students){  //checks for missing submissions (requires a list of student submissions)
     //     ArrayList<Student> missing = new ArrayList<Student>();

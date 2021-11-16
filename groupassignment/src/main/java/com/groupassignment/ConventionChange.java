@@ -2,18 +2,22 @@ package com.groupassignment;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Scanner;
 
 
-public class ConvectionChange implements IChangeName {
+public class ConventionChange implements IChangeName {
 
     private File oldFilename;
     private Student student;
     private List<Student> list;
 
 
-    public ConvectionChange(Student student, File file, List<Student> students) {
+    public ConventionChange(Student student, File file, List<Student> students) {
         this.oldFilename = file;
         this.student = student;
         this.list = students;
@@ -21,12 +25,14 @@ public class ConvectionChange implements IChangeName {
 
     @Override
     public String changePdfName(){
+        Path toBeRenamedPath = Paths.get(oldFilename.getPath());
         String name1;
         String name2;
         String fullname;
         String newFilename;
         String originalName;
         Scanner scan;
+        
         try {
             scan = new Scanner(oldFilename);
         } catch (FileNotFoundException e) {
@@ -42,6 +48,12 @@ public class ConvectionChange implements IChangeName {
         if(student != null){
             newFilename = student.getFullName()+"_"+ student.getIdNumber()+"_"+"assignSubFile"+"_"+originalName+".pdf";
             scan.close();
+            try{
+                Files.copy(toBeRenamedPath, (new File("filesToRename/renamedFiles/" + newFilename + ".pdf").toPath()), StandardCopyOption.REPLACE_EXISTING);
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
             return newFilename;
         }
         scan.close();
