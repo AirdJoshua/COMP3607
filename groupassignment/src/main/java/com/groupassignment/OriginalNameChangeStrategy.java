@@ -12,7 +12,6 @@ import java.util.Scanner;
 public class OriginalNameChangeStrategy implements IChangeName{
 
     private File oldFilename;
-    private Student student;
     private List<Student> list;
 
 
@@ -24,6 +23,7 @@ public class OriginalNameChangeStrategy implements IChangeName{
 
     @Override
     public String changePdfName() {
+        Student student;
         Path toBeRenamedPath = Paths.get(oldFilename.getPath());
         String[] strings = new String[10];
         String newFilename;

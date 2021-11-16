@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 public class Convention1To2Strategy implements IChangeName {
     private File oldFilename;
-    private Student student;
     private ArrayList<Student> list;
 
     public Convention1To2Strategy(File file, ArrayList<Student> students) {
@@ -21,6 +20,7 @@ public class Convention1To2Strategy implements IChangeName {
 
     @Override
     public String changePdfName(){
+        Student student;
         Path toBeRenamedPath = Paths.get(oldFilename.getPath());
         String newFilename;
         Scanner scan;
