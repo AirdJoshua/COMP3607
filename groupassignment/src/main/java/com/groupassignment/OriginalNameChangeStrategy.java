@@ -2,25 +2,29 @@ package com.groupassignment;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Scanner;
 
-public class OriginalNameChange implements IChangeName{
+public class OriginalNameChangeStrategy implements IChangeName{
 
     private File oldFilename;
     private Student student;
     private List<Student> list;
 
 
-    public OriginalNameChange(Student student, File file, List<Student> students) {
+    public OriginalNameChangeStrategy( File file, List<Student> students) {
         this.oldFilename = file;
-        this.student = student;
         this.list = students;
     }
 
 
     @Override
     public String changePdfName() {
+        Path toBeRenamedPath = Paths.get(oldFilename.getPath());
         String[] strings = new String[10];
         String newFilename;
         String words = "";
@@ -60,6 +64,12 @@ public class OriginalNameChange implements IChangeName{
         if(student != null){
             newFilename = student.getFullName()+"_"+ student.getIdNumber()+"_"+"assignSubFile"+"_"+originalName+".pdf";
             scan.close();
+            try{
+                Files.copy(toBeRenamedPath, (new File("filesToRename/renamedFiles/" + newFilename + ".pdf").toPath()), StandardCopyOption.REPLACE_EXISTING);
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
             return newFilename;
         }
         scan.close();

@@ -1,4 +1,5 @@
 package com.groupassignment;
+
 public class Student {
     private String identifier;
     private String fullName;
