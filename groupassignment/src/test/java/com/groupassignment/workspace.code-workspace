@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\..\\..\\..\\..\\.."
+		},
+		{
+			"path": "..\\..\\..\\..\\..\\..\\..\\..\\..\\Desktop\\University Life\\Year 3 Semester 1\\COMP 3607\\Group Project\\groupassignment"
+		},
+		{
+			"name": "markdown-portfolio",
+			"path": "..\\..\\..\\..\\..\\..\\..\\..\\..\\.vscode\\markdown-portfolio"
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "automatic"
+	}
+}
