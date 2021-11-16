@@ -9,16 +9,15 @@ import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Scanner;
 
-public class OriginalNameChange implements IChangeName{
+public class OriginalNameChangeStrategy implements IChangeName{
 
     private File oldFilename;
     private Student student;
     private List<Student> list;
 
 
-    public OriginalNameChange(Student student, File file, List<Student> students) {
+    public OriginalNameChangeStrategy( File file, List<Student> students) {
         this.oldFilename = file;
-        this.student = student;
         this.list = students;
     }
 

@@ -1,6 +1,8 @@
 package com.groupassignment;
 
+import java.io.File;
+
 public interface FileIterator {
-    public void getNext();
-    public Object next();
+    public Boolean hasNext();
+    public File next();
 }

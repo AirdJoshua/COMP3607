@@ -1,25 +1,20 @@
 package com.groupassignment;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-
-public class ConventionChange implements IChangeName {
-
+public class Convention2RenameStrategy implements IChangeName{
     private File oldFilename;
     private Student student;
-    private List<Student> list;
+    private ArrayList<Student> list;
 
-
-    public ConventionChange(Student student, File file, List<Student> students) {
+    public Convention2RenameStrategy(File file, ArrayList<Student> students) {
         this.oldFilename = file;
-        this.student = student;
         this.list = students;
     }
 
@@ -34,30 +29,33 @@ public class ConventionChange implements IChangeName {
         Scanner scan;
         
         try {
-            scan = new Scanner(oldFilename);
-        } catch (FileNotFoundException e) {
+            scan = new Scanner(oldFilename.getName());
+        } catch (Exception e) {
             e.printStackTrace();
             return "File not found";
         }
         scan.useDelimiter("_");
         name1 = scan.next();
-        name2 = scan.next();
-        fullname = name1+name2;
+        String identifier = scan.next();
+        scan.next();
+        scan.next();
+        fullname = name1;//+name2;
         originalName = scan.next();
+
         student = findStudent(fullname);
         if(student != null){
-            newFilename = student.getFullName()+"_"+ student.getIdNumber()+"_"+"assignSubFile"+"_"+originalName+".pdf";
+            newFilename = student.getFullName()+"_"+ student.getIdNumber()+"_"+"assignsubmission_file"+"_"+ originalName;
             scan.close();
             try{
-                Files.copy(toBeRenamedPath, (new File("filesToRename/renamedFiles/" + newFilename + ".pdf").toPath()), StandardCopyOption.REPLACE_EXISTING);
+                Files.copy(toBeRenamedPath, (new File("filesToRename/renamedFiles/" + newFilename).toPath()), StandardCopyOption.REPLACE_EXISTING);
+                return newFilename;
             }
             catch(Exception e){
-                e.printStackTrace();
+                e.printStackTrace();    
             }
-            return newFilename;
         }
-        scan.close();
-        return "student not found";
+        scan.close();  
+        return "student not found"; 
     }
 
     public Student findStudent(String fullname) {
@@ -68,5 +66,4 @@ public class ConventionChange implements IChangeName {
         }
         return null;
     }
-    
 }

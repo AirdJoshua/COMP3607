@@ -17,7 +17,7 @@ import java.util.zip.ZipEntry;
 
 public class FileFixer {
     public static void main(String[] args) throws Exception{
-        String csvFilePath = "groupassignment/testSheet.csv";
+        String csvFilePath = "studentDataSheet\\testSheet.csv";
         File csvFile = new File(csvFilePath);
         ArrayList<Student> students = new ArrayList<Student>();
         String row;
