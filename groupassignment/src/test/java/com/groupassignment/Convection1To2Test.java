@@ -8,6 +8,6 @@ import org.junit.Test;
 import org.junit.BeforeClass;
 import org.junit.Before;
 
-public class ConvectionChangeTest {
+public class Convection1To2Test {
     
 }

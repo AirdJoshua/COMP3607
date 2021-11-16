@@ -13,11 +13,11 @@ import org.junit.Test;
 import org.junit.BeforeClass;
 import org.junit.Before;
 
-public class OriginalNameTest {
+public class OriginalNameChangeTest {
     private IChangeName newName;
     List<Student> students = new ArrayList();
 
-    public OriginalNameTest(){
+    public OriginalNameChangeTest(){
 
     }
     
