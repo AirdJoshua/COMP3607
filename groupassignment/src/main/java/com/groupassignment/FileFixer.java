@@ -60,6 +60,39 @@
 //         File folder = new File("filesToRename");
 //         ArrayList<File> pdfFiles = new ArrayList<File>();
 
+    // private static void renameAndMoveFile(File toBeRenamed, String newName) throws Exception{
+    //     //create new path object from toBeRenamed
+    //     Path toBeRenamedPath = Paths.get(toBeRenamed.getPath());
+    //     Files.copy(toBeRenamedPath, (new File("filesToRename/renamedFiles/" + newName + ".pdf").toPath()), StandardCopyOption.REPLACE_EXISTING);
+    // }
+
+    // private static void missingSubmissions(ArrayList<Student> students, ArrayList<Student> submitted){  //checks for missing submissions (requires a list of student submissions)
+    //     ArrayList<Student> missing = new ArrayList<Student>();
+    //     Iterator subIter = submitted.iterator();
+    //     boolean found;
+    //     for(Student s: students){
+    //         String studentID = s.getIdNumber();
+    //         found = false;
+    //         while(subIter.hasNext() && !found){
+    //             Student temp = (Student)subIter.next();
+    //             if (studentID.equals(temp.getIdNumber()));
+    //                 found = true;
+    //         }
+    //         if(!found)
+    //             missing.add(s);
+    //     }
+    //      //if she wants us to output it to a file
+    //     File missingSubmissions = new File("./missingSubmissions.txt");
+    //     FileWriter fw = new FileWriter("missingSubmissions.txt");
+    //     for(Student s: missing){
+    //         fw.write(s.getIdNumber() + " " + s.getFullName() + "\n");
+    //     }
+    // }
+
+//     private static ArrayList<File> getFilesFromFolder(){
+//         File folder = new File("filesToRename");
+//         ArrayList<File> pdfFiles = new ArrayList<File>();
+
 //         File[] files = folder.listFiles();
         
 //         for(File file: files){
