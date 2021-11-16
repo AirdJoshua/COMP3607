@@ -21,8 +21,7 @@ public class Convention2RenameStrategy implements IChangeName{
     @Override
     public String changePdfName(){
         Path toBeRenamedPath = Paths.get(oldFilename.getPath());
-        String name1;
-        String name2;
+        String name;
         String fullname;
         String newFilename;
         String originalName;
@@ -35,11 +34,14 @@ public class Convention2RenameStrategy implements IChangeName{
             return "File not found";
         }
         scan.useDelimiter("_");
-        name1 = scan.next();
-        String identifier = scan.next();
+        name = scan.next();
+        //read identifier
+        scan.next();
+
+        //read assignSubmissionFile
         scan.next();
         scan.next();
-        fullname = name1;//+name2;
+        fullname = name;
         originalName = scan.next();
 
         student = findStudent(fullname);

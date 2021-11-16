@@ -1,7 +1,6 @@
 package com.groupassignment;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -33,9 +32,12 @@ public class Convention1To2Strategy implements IChangeName {
             return "File not found";
         }
         scan.useDelimiter("_");
-        String myelearningCode = scan.next();
-        String name1 = scan.next();
-        String name2 = scan.next();
+        //read myElearning code
+        scan.next();
+        //read first and last names
+        scan.next();
+        scan.next();
+
         String identifier = scan.next();
         String originalName = scan.next();
 
