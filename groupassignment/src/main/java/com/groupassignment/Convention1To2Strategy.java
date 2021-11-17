@@ -24,9 +24,9 @@ public class Convention1To2Strategy implements IChangeName {
         Path toBeRenamedPath = Paths.get(oldFilename.getPath());
         String newFilename;
         Scanner scan;
-        
+        String fileName = oldFilename.getName();
         try {
-            scan = new Scanner(oldFilename.getName());
+            scan = new Scanner(fileName);
         } catch (Exception e) {
             e.printStackTrace();
             return "File not found";
@@ -35,16 +35,18 @@ public class Convention1To2Strategy implements IChangeName {
         //read myElearning code
         scan.next();
         //read first and last names
-        scan.next();
-        scan.next();
+        
+        //String identifier = scan.next();
+        String originalName = new String();
 
-        String identifier = scan.next();
-        String originalName = scan.next();
+        while(scan.hasNext()){
+            originalName = scan.next();
+        }
 
-        student = findStudent(identifier);
+        student = findStudent(fileName.replaceAll("\\s", "").toLowerCase());
 
         if(student != null){
-            newFilename = student.getFullName()+"_"+ student.getIdNumber()+"_"+"assignsubmission_file"+"_"+ originalName;
+            newFilename = student.getFullName()+"_"+ student.getIdentifier()+"_"+"assignsubmission_file_"+ originalName;
             scan.close();
             try{
                 Files.copy(toBeRenamedPath, (new File("filesToRename/renamedFiles/" + newFilename).toPath()), StandardCopyOption.REPLACE_EXISTING);
@@ -60,8 +62,7 @@ public class Convention1To2Strategy implements IChangeName {
 
     public Student findStudent(String fileName) {
         for(Student s: list){
-            String[] identifier= s.getIdentifier().split(" ");
-            if(fileName.contains(identifier[1])){
+            if(fileName.contains(s.getIdentifier().replaceAll("\\s", "").toLowerCase())){
                 return s;
             }
         }

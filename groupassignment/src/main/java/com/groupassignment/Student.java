@@ -45,7 +45,8 @@ public class Student {
     }
 
     public String getIdentifier() {
-        return identifier;
+        String[] s = identifier.split(" ");
+        return s[1];
     }
 
     public String getFullName() {
