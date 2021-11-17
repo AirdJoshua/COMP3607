@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,6 +13,7 @@ import java.util.Scanner;
 public class Convention1To2Strategy implements IChangeName {
     private File oldFilename;
     private List<Student> list;
+    private List<Student> submittedStudents = new ArrayList<Student>();
 
     public Convention1To2Strategy(File file, List<Student> students) {
         this.oldFilename = file;
@@ -63,9 +65,15 @@ public class Convention1To2Strategy implements IChangeName {
     public Student findStudent(String fileName) {
         for(Student s: list){
             if(fileName.contains(s.getIdentifier().replaceAll("\\s", "").toLowerCase())){
+                submittedStudents.add(s);
                 return s;
             }
         }
         return null;
+    }
+
+    @Override
+    public ArrayList<Student> getSubmittedStudents() {
+        return (ArrayList<Student>) submittedStudents;
     }
 }

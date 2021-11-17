@@ -5,11 +5,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
 import java.util.List;
 
 public class NoConventionStrategy implements IChangeName {
     private File oldFilename;
     private List<Student> list;
+    private List<Student> submittedStudents = new ArrayList<Student>();
 
     public NoConventionStrategy(File file, List<Student> students) {
         this.oldFilename = file;
@@ -42,15 +44,22 @@ public class NoConventionStrategy implements IChangeName {
     public Student findStudent(String fileName) {
         for (Student s : list) {
             if (fileName.contains(s.getIdNumber())) {
+                submittedStudents.add(s);
                 return s;
             }
         }
 
         for (Student s : list) {
             if (fileName.contains(s.getFullName().toLowerCase().replaceAll("\\s", ""))) {
+                submittedStudents.add(s);
                 return s;
             }
         }
         return null;
+    }
+
+    @Override
+    public ArrayList<Student> getSubmittedStudents() {
+        return (ArrayList<Student>) submittedStudents;
     }
 }
