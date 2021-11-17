@@ -11,7 +11,7 @@ import java.util.List;
 public class NoConventionStrategy extends MissingFiles implements IChangeName{
     private File oldFilename;
     private List<Student> list;
-    private List<Student> submittedStudents = new ArrayList<Student>();
+    private List<Student> submittedStudents = new ArrayList<>();
 
     public NoConventionStrategy(File file, List<Student> students) {
         this.oldFilename = file;
