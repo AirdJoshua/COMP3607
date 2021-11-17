@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -14,9 +15,12 @@ public class Convention1To2Strategy implements IChangeName {
     private Student student;
     private ArrayList<Student> list;
 
-    public Convention1To2Strategy(File file, ArrayList<Student> students) {
+    public Convention1To2Strategy(File file, List<Student> students) {
         this.oldFilename = file;
         this.list = students;
+    }
+
+    public Convention1To2Strategy(File file, List<Student> students) {
     }
 
     @Override
