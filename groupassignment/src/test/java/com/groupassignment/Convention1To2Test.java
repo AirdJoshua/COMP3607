@@ -20,6 +20,7 @@ public class Convention1To2Test extends ChangeNameTest{
     
     @BeforeEach
     public void setUp() {
+        students = Student.getStudents("studentDataSheet\\Sample 3 CSV.csv");
         File file = new File("1409121490-602637_Beth_Morales-Horton_601683_Assignment1_81305512.pdf");
         newName = new Convention1To2Strategy(file, students);
     }
