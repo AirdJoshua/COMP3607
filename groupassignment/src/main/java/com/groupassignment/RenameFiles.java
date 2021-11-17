@@ -12,19 +12,16 @@ public class RenameFiles implements IContainer {
     private ArrayList<File> files = getFilesFromFolder();
     private int index;
 
-    public FileIterator createIterator() {
-        FilesIterator files = new FilesIterator();
-        return files;
+    public FilesIterator createIterator() {
+        return  new FilesIterator();
     }
 
     private class FilesIterator implements FileIterator {
         @Override
         public Boolean hasNext() {
-            if (index < files.size()) {
+            if (index < files.size())
                 return true;
-            } else {
-                return false;
-            }
+            return false;
         }
 
         @Override

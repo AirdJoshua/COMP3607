@@ -10,9 +10,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class RenameFilesTest {
+public class RenameFilesTest<FilesIterator> {
     private RenameFiles rFiles;
-
+    private FilesIterator results;
     public RenameFilesTest(){
     }
 
@@ -37,7 +37,7 @@ public class RenameFilesTest {
     @Test
     public void getFilesFromFolder(){
         System.out.println("get Files");
-        FileIterator results = rFiles.createIterator();;
+        results = rFiles.createIterator();
         assertNotNull(results);
     }
  
