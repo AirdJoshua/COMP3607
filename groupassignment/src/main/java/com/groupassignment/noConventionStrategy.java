@@ -5,20 +5,20 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.ArrayList;
+import java.util.List;
 
-public class noConventionStrategy implements IChangeName {
+public class NoConventionStrategy implements IChangeName {
     private File oldFilename;
-    private Student student;
-    private ArrayList<Student> list;
+    private List<Student> list;
 
-    public noConventionStrategy(File file, ArrayList<Student> students) {
+    public NoConventionStrategy(File file, List<Student> students) {
         this.oldFilename = file;
         this.list = students;
     }
 
     @Override
     public String changePdfName() {
+        Student student;
         Path toBeRenamedPath = Paths.get(oldFilename.getPath());
         String newFilename;
         String fileName = oldFilename.getName();
