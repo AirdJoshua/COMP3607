@@ -1,17 +1,16 @@
 package com.groupassignment;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Test;
-
-import org.junit.BeforeClass;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class Convection2RenameTest {
     private IChangeName newName;
@@ -20,25 +19,24 @@ public class Convection2RenameTest {
         
 
     public Convection2RenameTest(){
-
     }
     
-    @BeforeClass
+    @BeforeAll
     public static void setUpClass() {
     }
     
-    @AfterClass
+    @AfterAll
     public static void tearDownClass() {
     }
     
-    @Before
+    @BeforeEach
     public void setUp() {
         students.add(student); 
         File file = new File("C:\\Users\\willk\\Documents\\GitHub\\COMP3607\\1420037856-602106_Maryann_Steele_601725_Info 2603 Assignment 1.pdf");
         newName = new OriginalNameChangeStrategy(file, students);
     }
     
-    @After
+    @AfterEach
     public void tearDown() {
     }
 
