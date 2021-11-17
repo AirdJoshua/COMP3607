@@ -1,8 +1,5 @@
 package com.groupassignment;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -10,15 +7,17 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class RenameFilesTest {
-    private RenameFiles rFiles;
+public abstract class ChangeNameTest {
+      
 
-    public RenameFilesTest(){
+    public final void ChangeNameTest(){
+        setUp();
+        testChangePdfName();
+        testFindStudent();
     }
 
     @BeforeAll
     public static void setUpClass() {
-
     }
     
     @AfterAll
@@ -26,19 +25,16 @@ public class RenameFilesTest {
     }
     
     @BeforeEach
-    public void setUp() {
-        rFiles = new RenameFiles();
-   }
+    public abstract void setUp();
     
     @AfterEach
     public void tearDown() {
     }
 
     @Test
-    public void getFilesFromFolder(){
-        System.out.println("get Files");
-        FileIterator results = rFiles.createIterator();;
-        assertNotNull(results);
-    }
- 
+    public abstract void testChangePdfName();
+
+    @Test
+    public abstract void testFindStudent();
+    
 }
