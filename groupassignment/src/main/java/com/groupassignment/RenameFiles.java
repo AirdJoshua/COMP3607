@@ -29,8 +29,7 @@ public class RenameFiles implements IContainer {
 
         @Override
         public File next() {
-            File file = files.get(index++);
-            return file;
+            return files.get(index++);
         }
     }
 

@@ -109,7 +109,6 @@ public class Student {
                 System.out.println("Error while reading CSV file !!!");
             }
         }
-
         return students;
     }
 

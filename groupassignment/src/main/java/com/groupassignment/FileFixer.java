@@ -33,7 +33,7 @@ public class FileFixer
                 }
             }
             else{
-                renameStrategy = new noConventionStrategy(file, students);
+                renameStrategy = new NoConventionStrategy(file, students);
                 String newName = renameStrategy.changePdfName();
                 System.out.println(newName);
             }
