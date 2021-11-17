@@ -82,7 +82,7 @@ public class StudentTest{
     @Test
     public void testGetIdentifier(){
         System.out.println("get Identifier");
-        String expResults = "Participant 601725";
+        String expResults = "601725";
         String results = student.getIdentifier();
         assertEquals(expResults,results);
     }
