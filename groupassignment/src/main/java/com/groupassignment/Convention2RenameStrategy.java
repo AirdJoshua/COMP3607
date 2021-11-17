@@ -24,7 +24,7 @@ public class Convention2RenameStrategy implements IChangeName{
         String name;
         String fullname;
         String newFilename;
-        String originalName;
+        String originalName = new String();
         Scanner scan;
         
         try {
@@ -42,11 +42,15 @@ public class Convention2RenameStrategy implements IChangeName{
         scan.next();
         scan.next();
         fullname = name;
-        originalName = scan.next();
+
+        while(scan.hasNext()){
+            originalName += scan.next();
+        }
+        
 
         student = findStudent(fullname);
         if(student != null){
-            newFilename = student.getFullName()+"_"+ student.getIdNumber()+"_"+"assignsubmission_file"+"_"+ originalName;
+            newFilename = student.getFullName()+"_"+ student.getIdentifier()+"_"+"assignsubmission_file"+"_"+ originalName;
             scan.close();
             try{
                 Files.copy(toBeRenamedPath, (new File("filesToRename/renamedFiles/" + newFilename).toPath()), StandardCopyOption.REPLACE_EXISTING);
@@ -62,7 +66,7 @@ public class Convention2RenameStrategy implements IChangeName{
 
     public Student findStudent(String fullname) {
         for(Student s: list){
-            if(s.getFullName().equals(fullname)){
+            if(s.getFullName().replaceAll("\\s", "").toLowerCase().equals(fullname.replaceAll("\\s", "").toLowerCase())){
                 return s;
             }
         }
