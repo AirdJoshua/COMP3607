@@ -9,7 +9,6 @@ public class FileFixer
     {
         ArrayList<Student> students = Student.getStudents("studentDataSheet\\Sample 3 CSV.csv");
         RenameFiles renameFiles = new RenameFiles();
-        IChangeName renameStrategy;
         
         for(FileIterator fileIter = renameFiles.createIterator(); fileIter.hasNext();){
             File file = fileIter.next();
@@ -19,21 +18,23 @@ public class FileFixer
 
             //check for the space contained in the name as well as the random myElearning code of convention 2
             if(data.length >= 2 && data[0].contains(" ") && data[1].length() == 6){
-                renameStrategy = new Convention2RenameStrategy(file, students);
+                Convention2RenameStrategy renameStrategy = new Convention2RenameStrategy(file, students);
                 String newName = renameStrategy.changePdfName();
+                
+                renameStrategy.missingSubmissionFiles(students,renameStrategy.getSubmittedStudents());
                 System.out.println(newName);
             }
             //check for the dash contained in convention 1
             else if(data.length >= 2 && data[0].contains("-")){
                 String[] randomCodes = data[0].split("-");
                 if(randomCodes[0].length() == 10 && randomCodes[1].length() == 6){
-                    renameStrategy = new Convention1To2Strategy(file, students);
+                    Convention1To2Strategy renameStrategy = new Convention1To2Strategy(file, students);
                     String newName = renameStrategy.changePdfName();
                     System.out.println(newName);
                 }
             }
             else{
-                renameStrategy = new NoConventionStrategy(file, students);
+                NoConventionStrategy renameStrategy = new NoConventionStrategy(file, students);
                 String newName = renameStrategy.changePdfName();
                 System.out.println(newName);
             }
