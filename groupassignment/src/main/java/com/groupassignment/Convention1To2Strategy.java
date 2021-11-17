@@ -51,6 +51,10 @@ public class Convention1To2Strategy extends MissingFiles implements IChangeName{
             newFilename = student.getFullName()+"_"+ student.getIdentifier()+"_"+"assignsubmission_file_"+ originalName;
             scan.close();
             try{
+                File renamedFiles =new File("filesToRename/renamedFiles/");
+                if(!renamedFiles.exists()){
+                    renamedFiles.mkdir();
+                }
                 Files.copy(toBeRenamedPath, (new File("filesToRename/renamedFiles/" + newFilename).toPath()), StandardCopyOption.REPLACE_EXISTING);
                 return newFilename;
             }

@@ -31,8 +31,11 @@ public class NoConventionStrategy extends MissingFiles implements IChangeName{
             newFilename = student.getFullName() + "_" + student.getIdentifier() + "_" + "assignsubmission_file" + "_"
                     + fileName;
             try {
-                Files.copy(toBeRenamedPath, (new File("filesToRename/renamedFiles/" + newFilename).toPath()),
-                        StandardCopyOption.REPLACE_EXISTING);
+                File renamedFiles =new File("filesToRename/renamedFiles/");
+                if(!renamedFiles.exists()){
+                    renamedFiles.mkdir();
+                }
+                Files.copy(toBeRenamedPath, (new File("filesToRename/renamedFiles/" + newFilename).toPath()), StandardCopyOption.REPLACE_EXISTING);
                 return newFilename;
             } catch (Exception e) {
                 e.printStackTrace();
