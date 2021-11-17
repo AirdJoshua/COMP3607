@@ -8,7 +8,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NoConventionStrategy implements IChangeName {
+public class NoConventionStrategy extends MissingFiles implements IChangeName{
     private File oldFilename;
     private List<Student> list;
     private List<Student> submittedStudents = new ArrayList<Student>();
