@@ -12,7 +12,7 @@ public class RenameFiles implements IContainer {
     private ArrayList<File> files = getFilesFromFolder();
     private int index;
 
-    public FileIterator createIterator() {
+    public FilesIterator createIterator() {
         FilesIterator files = new FilesIterator();
         return files;
     }
