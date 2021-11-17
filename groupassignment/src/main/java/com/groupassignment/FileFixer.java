@@ -10,7 +10,7 @@ public class FileFixer
         ArrayList<Student> students = Student.getStudents("studentDataSheet\\Sample 3 CSV.csv");
         RenameFiles renameFiles = new RenameFiles();
         
-        for(FileIterator fileIter = renameFiles.createIterator(); fileIter.hasNext();){
+        for(FilesIterator fileIter = renameFiles.createIterator(); fileIter.hasNext();){
             File file = fileIter.next();
             String filename = file.getName();
             
