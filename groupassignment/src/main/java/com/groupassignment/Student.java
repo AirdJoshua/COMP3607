@@ -1,13 +1,10 @@
 package com.groupassignment;
 
-<<<<<<< HEAD
-=======
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
->>>>>>> d009cb1fb7f5c0aa70120a1be4558618b2737f06
 public class Student {
     private String identifier;
     private String fullName;
