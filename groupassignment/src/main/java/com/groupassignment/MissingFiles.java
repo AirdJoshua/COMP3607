@@ -20,9 +20,8 @@ public abstract class MissingFiles{
             if(!found)
                 missing.add(s);
         }
-        System.out.println("LIST OF MISSING STUDENT SUBMISSIONS");
         for(Student s: missing){
-            System.out.println(s.getFullName());
+            //System.out.println(s.getFullName());
         }
     }
 

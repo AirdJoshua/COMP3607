@@ -31,7 +31,8 @@ public class FilesIterator implements IFileIterator {
         ArrayList<File> pdfFiles = new ArrayList<File>();
 
         File[] files = folder.listFiles();
-
+        System.out.println(files);
+        
         for (File file : files) {
             if (file.getName().contains(".zip")) {
                 unzipFile(file);

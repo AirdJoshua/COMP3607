@@ -22,7 +22,6 @@ public class FileFixer
                 String newName = renameStrategy.changePdfName();
                 
                 renameStrategy.missingSubmissionFiles(students,renameStrategy.getSubmittedStudents());
-                System.out.println(newName);
             }
             //check for the dash contained in convention 1
             else if(data.length >= 2 && data[0].contains("-")){
@@ -30,13 +29,11 @@ public class FileFixer
                 if(randomCodes[0].length() == 10 && randomCodes[1].length() == 6){
                     Convention1To2Strategy renameStrategy = new Convention1To2Strategy(file, students);
                     String newName = renameStrategy.changePdfName();
-                    System.out.println(newName);
                 }
             }
             else{
                 NoConventionStrategy renameStrategy = new NoConventionStrategy(file, students);
                 String newName = renameStrategy.changePdfName();
-                System.out.println(newName);
             }
         }
     }
