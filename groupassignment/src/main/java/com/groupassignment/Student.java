@@ -86,7 +86,7 @@ public class Student {
 
     public static ArrayList<Student> getStudents(String csvFilePath){
         File csvFile = new File(csvFilePath);
-        ArrayList<Student> students = new ArrayList<>();
+        ArrayList<Student> students = new ArrayList<Student>();
         String row;
 
         //if csvFile exists
@@ -108,7 +108,6 @@ public class Student {
                 System.out.println("Error while reading CSV file !!!");
             }
         }
-
         return students;
     }
 

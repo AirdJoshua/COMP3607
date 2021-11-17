@@ -2,6 +2,9 @@ package com.groupassignment;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import java.util.List;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -26,6 +29,7 @@ public class StudentTest{
     @BeforeEach
     public void setUp() {
         student = new Student("Participant 601725", "Maryann Steele", "81304376", "maryann.steele@my.uwi.edu", "", "", "100.00", "Yes", "-", "");
+        testGetStudents();
     }
     
     @AfterEach
@@ -105,8 +109,9 @@ public class StudentTest{
     }
 
     @Test
-    public void getStudents(){
+    public void testGetStudents(){
         System.out.println("get Students List");
-        List<Student> result = 
+        List<Student> result = Student.getStudents("studentDataSheet\\Sample 1 CSV.csv");
+        assertNotNull(result);
     }
 }

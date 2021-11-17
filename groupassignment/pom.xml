@@ -10,11 +10,12 @@
 
   <name>groupassignment</name>
   <!-- FIXME change it to the project's website -->
-  <url>https://github.com/AirdJoshua/COMP3607</url>
+  <url>http://www.example.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.release>11</maven.compiler.release>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
 
   <dependencies>
