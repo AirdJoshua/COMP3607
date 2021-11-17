@@ -12,12 +12,13 @@ import org.junit.jupiter.api.Test;
 
 public class OriginalNameChangeTest extends ChangeNameTest {
 
+    public OriginalNameChangeTest() {
+    }
+
     private IChangeName newName;
     List<Student> students = new ArrayList<Student>();
     Student student = new Student("Participant 601725", "Maryann Steele", "81304376", "maryann.steele@my.uwi.edu", "", "", "100.00", "Yes", "-", "");
         
-    public OriginalNameChangeTest(){
-    }
     
     @BeforeEach
     public void setUp() {

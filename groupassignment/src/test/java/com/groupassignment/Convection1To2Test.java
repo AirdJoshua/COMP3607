@@ -10,11 +10,10 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class Convection1To2Test extends ChangeName{
+public class Convection1To2Test extends ChangeNameTest{
 
 
-    public Convection1To2Test(ArrayList<Student> students, File file) {
-        super(students, file);
+    public Convection1To2Test() {
     }
 
     private IChangeName newName;
