@@ -8,7 +8,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Scanner;
 
-public class Convention2RenameStrategy implements IChangeName{
+public class Convention2RenameStrategy extends MissingFiles implements IChangeName {
     private File oldFilename;
     private List<Student> list;
 
