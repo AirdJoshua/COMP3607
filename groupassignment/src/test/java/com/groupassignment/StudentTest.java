@@ -11,8 +11,11 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class StudentTest{
+    private List<Student> students;
     private Student student;
 
     public StudentTest(){
@@ -29,7 +32,7 @@ public class StudentTest{
     @BeforeEach
     public void setUp() {
         student = new Student("Participant 601725", "Maryann Steele", "81304376", "maryann.steele@my.uwi.edu", "", "", "100.00", "Yes", "-", "");
-        testGetStudents();
+        
     }
     
     @AfterEach
@@ -100,6 +103,7 @@ public class StudentTest{
         assertEquals(expResults,results);
     }
 
+    
     @Test
     public void testGetStatus(){
         System.out.println("get Status");
@@ -108,10 +112,11 @@ public class StudentTest{
         assertEquals(expResults,results);
     }
 
-    @Test
-    public void testGetStudents(){
-        System.out.println("get Students List");
-        List<Student> result = Student.getStudents("studentDataSheet\\Sample 1 CSV.csv");
-        assertNotNull(result);
+    @ParameterizedTest
+    @ValueSource(strings= {"studentDataSheet\\Sample 1 CSV.csv","studentDataSheet\\Sample 3 CSV.csv","studentDataSheet\\Sample 5 CSV.csv"})
+    public void testGetStudents(String csv){
+        System.out.println("get Students List from csv samples");
+        students = Student.getStudents(csv);
+        assertNotNull(students);
     }
 }
