@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Convention1To2Strategy extends MissingFiles implements IChangeName{
     private File oldFilename;
     private List<Student> list;
-    private List<Student> submittedStudents = new ArrayList<Student>();
+    private List<Student> submittedStudents = new ArrayList<>();
 
     public Convention1To2Strategy(File file, List<Student> students) {
         this.oldFilename = file;

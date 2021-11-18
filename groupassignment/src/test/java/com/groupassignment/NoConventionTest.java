@@ -16,13 +16,13 @@ public class NoConventionTest extends ChangeNameTest {
     }
 
     private NoConventionStrategy newName;
-    private List<Student> students = Student.getStudents("studentDataSheet\\Sample 5 CSV.csv");  
+    private List<Student> students = Student.getStudents("studentDataSheet\\Sample 4 CSV.csv");  
     
     @BeforeEach
     public void setUp() {
         File file = new File("81348493 Assignment 1 Darrell Rufus Porter.pdf");
         newName = new NoConventionStrategy(file, students);
-        students.toString();
+        System.out.println(newName.toString());
     }
     
     @Test

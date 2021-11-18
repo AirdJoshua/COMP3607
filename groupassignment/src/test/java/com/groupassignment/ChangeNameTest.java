@@ -16,6 +16,7 @@ public abstract class ChangeNameTest {
         testFindStudent();
     }
 
+
     @BeforeAll
     public static void setUpClass() {
     }
@@ -24,12 +25,12 @@ public abstract class ChangeNameTest {
     public static void tearDownClass() {
     }
     
-    @BeforeEach
-    public abstract void setUp();
-    
     @AfterEach
     public void tearDown() {
     }
+
+    @BeforeEach
+    public abstract void setUp();
 
     @Test
     public abstract void testChangePdfName();
