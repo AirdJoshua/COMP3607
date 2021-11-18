@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.io.File;
-import java.util.List;
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -15,17 +15,27 @@ import org.junit.jupiter.api.Test;
 
 public class Convention2RenameTest{
     private Convention2RenameStrategy newName;
-    private List<Student> students = Student.getStudents("../studentDataSheet/Sample 3 CSV.csv");
+    private ArrayList<Student> students = Student.getStudents("../studentDataSheet/Sample 1 CSV.csv");
 
     public Convention2RenameTest(){
     }
 
     @BeforeAll
     public static void setUpClass() {
+        File f = new File("filesToRename/renamedFiles/");
+        f.mkdirs();
     }
     
     @AfterAll
     public static void tearDownClass() {
+        File f = new File("Anna Horton_601727_assignsubmission_file_info 2603 assignment 1.pdf");
+        f.delete();
+        f= new File("filesToRename/renamedFiles/Anna Horton_601727_assignsubmission_file_info 2603 assignment 1.pdf");
+        f.delete();
+        f = new File("filesToRename/renamedFiles");
+        f.delete();
+        f = new File("filesToRename");
+        f.delete();
     }
     
     @AfterEach
@@ -36,6 +46,12 @@ public class Convention2RenameTest{
     public void setUp() {
         File file = new File("Anna Horton_601727_assignsubmission_file_info 2603 assignment 1.pdf");
         newName = new Convention2RenameStrategy(file, students);
+        try{
+            file.createNewFile();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
     }
 
     @Test

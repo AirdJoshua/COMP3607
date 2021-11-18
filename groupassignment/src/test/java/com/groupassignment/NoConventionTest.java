@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.io.File;
-import java.util.List;
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -14,19 +14,28 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class NoConventionTest{
-
+    private NoConventionStrategy newName;
+    private ArrayList<Student> students = Student.getStudents("../studentDataSheet/Sample 5 CSV.csv");  
+    
     public NoConventionTest() {
     }
-
-    private NoConventionStrategy newName;
-    private List<Student> students = Student.getStudents("../studentDataSheet/Sample 5 CSV.csv");  
     
     @BeforeAll
     public static void setUpClass() {
+        File f = new File("filesToRename/renamedFiles/");
+        f.mkdirs();
     }
     
     @AfterAll
     public static void tearDownClass() {
+        File f = new File("81348493 Assignment 1 Darrell Rufus Porter.pdf");
+        f.delete();
+        f= new File("filesToRename/renamedFiles/81348493_601706_assignsubmission_file_Assignment 1 Darrell Rufus Porter.pdf");
+        f.delete();
+        f = new File("filesToRename/renamedFiles");
+        f.delete();
+        f = new File("filesToRename");
+        f.delete();
     }
     
     @AfterEach
@@ -37,20 +46,25 @@ public class NoConventionTest{
     public void setUp() {
         File file = new File("81348493 Assignment 1 Darrell Rufus Porter.pdf");
         newName = new NoConventionStrategy(file, students);
-        System.out.println(newName.toString());
+        try{
+            file.createNewFile();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
     }
     
     @Test
     public void testGetSubmittedStudents(){
         System.out.println("get submitted");
-        List<Student> result = newName.getSubmittedStudents();
+        ArrayList<Student> result = newName.getSubmittedStudents();
         assertNotNull(result);
     }
 
     @Test
     public void testChangePdfName(){
         System.out.println("get New name");
-        String expResults = "81348493_601706_assignsubmission_file_Assignment 1 Darrell Rufus Porter.pdf";
+        String expResults = "Darrell Rufus Porter_601706_assignsubmission_file_81348493 Assignment 1 Darrell Rufus Porter.pdf";
         String results = newName.changePdfName();
         assertEquals(expResults,results);
     }
