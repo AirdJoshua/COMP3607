@@ -58,7 +58,7 @@ public class NoConventionTest{
     public void testChangePdfName(){
         System.out.println("get New name");
         //String expResults = "81348493 Assignment 1 Darrell Rufus Porter.pdf ";
-        Student expResults = new Student("601683", "Beth Morales-Horton", "81305512", "beth.moraleshorton@my.uwi.edu", null, null, "100", "Yes", "-", null);
+        //Student expResults = new Student("601683", "Beth Morales-Horton", "81305512", "beth.moraleshorton@my.uwi.edu", null, null, "100", "Yes", "-", null);
         Student results = newName.changePdfName();
         assertNotNull(results);
     }
@@ -74,7 +74,6 @@ public class NoConventionTest{
     public void testFindStudent(){
         System.out.println("Find Student by ID");
         Student results = newName.findStudent("81321343 Assignment 1.pdf");
-        System.out.println(results);
         assertNotNull(results);
     }
     
@@ -82,7 +81,6 @@ public class NoConventionTest{
     public void testFindStudentbyName(){
         System.out.println("Find Student by Name");
         Student results = newName.findStudent("Assignment1 Winifred Bowers.pdf");
-        System.out.println(results);
         assertNotNull(results);
     }
 

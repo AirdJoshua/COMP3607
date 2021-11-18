@@ -2,7 +2,7 @@ package com.groupassignment;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-
+import java.io.File;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -23,10 +23,14 @@ public class RenameFilesTest {
     
     @AfterAll
     public static void tearDownClass() {
+        File f = new File("filesToRename");
+        f.delete();
     }
     
     @BeforeEach
     public void setUp() {
+        File f = new File("filesToRename");
+        f.mkdir();
         rFiles = new RenameFiles();
    }
     
