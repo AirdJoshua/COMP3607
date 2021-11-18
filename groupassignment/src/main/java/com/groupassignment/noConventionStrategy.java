@@ -56,7 +56,7 @@ public class NoConventionStrategy extends MissingFiles implements IChangeName{
         }
 
         for (Student s : list) {
-            if (fileName.contains(s.getFullName().toLowerCase().replaceAll("\\s", ""))) {
+            if (fileName.replaceAll("\\s", "").toLowerCase().contains(s.getFullName().toLowerCase().replaceAll("\\s", ""))) {
                 submittedStudents.add(s);
                 return s;
             }
