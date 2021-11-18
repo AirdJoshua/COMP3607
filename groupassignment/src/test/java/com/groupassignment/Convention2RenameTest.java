@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 
 public class Convention2RenameTest{
     private Convention2RenameStrategy newName;
-    private List<Student> students = Student.getStudents("studentDataSheet\\Sample 1 CSV.csv");
+    private List<Student> students = Student.getStudents("../studentDataSheet/Sample 3 CSV.csv");
 
     public Convention2RenameTest(){
     }

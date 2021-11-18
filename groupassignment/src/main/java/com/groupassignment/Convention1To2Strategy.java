@@ -67,6 +67,9 @@ public class Convention1To2Strategy extends MissingFiles implements IChangeName{
     }
 
     public Student findStudent(String fileName) {
+        if(fileName == null){
+            return null;
+        }
         for(Student s: list){
             if(fileName.contains(s.getIdentifier().replaceAll("\\s", "").toLowerCase())){
                 submittedStudents.add(s);

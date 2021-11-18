@@ -45,6 +45,9 @@ public class NoConventionStrategy extends MissingFiles implements IChangeName{
     }
 
     public Student findStudent(String fileName) {
+        if(fileName == null){
+            return null;
+        }
         for (Student s : list) {
             if (fileName.contains(s.getIdNumber())) {
                 submittedStudents.add(s);

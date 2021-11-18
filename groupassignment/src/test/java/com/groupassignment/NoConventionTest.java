@@ -19,7 +19,7 @@ public class NoConventionTest{
     }
 
     private NoConventionStrategy newName;
-    private List<Student> students = Student.getStudents("studentDataSheet\\Sample 4 CSV.csv");  
+    private List<Student> students = Student.getStudents("../studentDataSheet/Sample 5 CSV.csv");  
     
     @BeforeAll
     public static void setUpClass() {
