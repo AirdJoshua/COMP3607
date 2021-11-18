@@ -87,7 +87,7 @@ public class NoConventionTest{
     @Test
     public void testFindStudentbyName(){
         System.out.println("Find Student by Name");
-        Student results = newName.findStudent("Irving Fitzgerald Info 2603 Assignment 1.pdf ");
+        Student results = newName.findStudent("Assignment1 Winifred Bowers.pdf");
         System.out.println(results);
         assertNotNull(results);
     }
