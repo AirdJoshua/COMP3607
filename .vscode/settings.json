@@ -3,7 +3,7 @@
     "maven.terminal.useJavaHome": true,
     "maven.view": "hierarchical",
     "maven.pomfile.autoUpdateEffectivePOM": true,
-    "java.completion.enabled": true,
+    "java.completion.enabled": false,
     "java.debug.settings.enableRunDebugCodeLens": false,
     "java.test.editor.enableShortcuts": false
 }
