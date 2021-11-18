@@ -69,6 +69,9 @@ public class Convention2RenameStrategy extends MissingFiles implements IChangeNa
     }
 
     public Student findStudent(String fullname) {
+        if(fullname == null){
+            return null;
+        }
         for(Student s: list){
             if(s.getFullName().replaceAll("\\s", "").toLowerCase().equals(fullname.replaceAll("\\s", "").toLowerCase())){
                 return s;

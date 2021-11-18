@@ -37,7 +37,7 @@ public class RenameFilesTest {
     @Test
     public void getFilesFromFolder(){
         System.out.println("get Files");
-        FileIterator results = rFiles.createIterator();;
+        FileIterator results = rFiles.createIterator();
         assertNotNull(results);
     }
  
