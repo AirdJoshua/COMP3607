@@ -30,7 +30,7 @@ public class NoConventionTest{
     public static void tearDownClass() {
         File f = new File("81348493 Assignment 1 Darrell Rufus Porter.pdf");
         f.delete();
-        f= new File("filesToRename/renamedFiles/81348493_601706_assignsubmission_file_Assignment 1 Darrell Rufus Porter.pdf");
+        f= new File("filesToRename/renamedFiles/Darrell Rufus Porter_601706_assignsubmission_file_81348493 Assignment 1 Darrell Rufus Porter.pdf");
         f.delete();
         f = new File("filesToRename/renamedFiles");
         f.delete();
