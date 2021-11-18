@@ -30,7 +30,7 @@ public class NoConventionTest{
     public static void tearDownClass() {
         File f = new File("81348493 Assignment 1 Darrell Rufus Porter.pdf");
         f.delete();
-        f= new File("filesToRename/renamedFiles/81348493_601706_assignsubmission_file_Assignment 1 Darrell Rufus Porter.pdf");
+        f= new File("filesToRename/renamedFiles/Darrell Rufus Porter_601706_assignsubmission_file_81348493 Assignment 1 Darrell Rufus Porter.pdf");
         f.delete();
         f = new File("filesToRename/renamedFiles");
         f.delete();
@@ -53,20 +53,14 @@ public class NoConventionTest{
             System.out.println(e);
         }
     }
-    
-    @Test
-    public void testGetSubmittedStudents(){
-        System.out.println("get submitted");
-        ArrayList<Student> result = newName.getSubmittedStudents();
-        assertNotNull(result);
-    }
 
     @Test
     public void testChangePdfName(){
         System.out.println("get New name");
-        String expResults = "Darrell Rufus Porter_601706_assignsubmission_file_81348493 Assignment 1 Darrell Rufus Porter.pdf";
-        String results = newName.changePdfName();
-        assertEquals(expResults,results);
+        //String expResults = "81348493 Assignment 1 Darrell Rufus Porter.pdf ";
+        Student expResults = new Student("601683", "Beth Morales-Horton", "81305512", "beth.moraleshorton@my.uwi.edu", null, null, "100", "Yes", "-", null);
+        Student results = newName.changePdfName();
+        assertNotNull(results);
     }
 
     @Test
