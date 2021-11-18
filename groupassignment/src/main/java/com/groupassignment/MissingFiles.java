@@ -6,7 +6,7 @@ import java.util.Iterator;
 public abstract class MissingFiles{
     
     public void missingSubmissionFiles(ArrayList<Student> students, ArrayList<Student> submitted){
-        ArrayList<Student> missing = new ArrayList<Student>();
+        ArrayList<Student> missing = new ArrayList<>();
         Iterator<Student> subIter = submitted.iterator();
         boolean found;
         for(Student s: students){
@@ -14,7 +14,7 @@ public abstract class MissingFiles{
             found = false;
             while(subIter.hasNext() && !found){
                 Student temp = subIter.next();
-                if (studentID.equals(temp.getIdNumber()));
+                if (studentID.equals(temp.getIdNumber()))
                     found = true;
             }
             if(!found)

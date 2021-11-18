@@ -11,12 +11,11 @@ public class NoConventionStrategy extends MissingFiles implements IChangeName{
     private File oldFilename;
     private List<Student> list;
 
-    public NoConventionStrategy(File file, List<Student> students) {
+    public NoConventionStrategy(File file, List<Student> students){
         this.oldFilename = file;
         this.list = students;
     }
 
-    @Override
     public Student changePdfName() {
         Student student;
         Path toBeRenamedPath = Paths.get(oldFilename.getPath());
