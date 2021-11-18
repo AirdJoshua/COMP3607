@@ -50,7 +50,7 @@ public class NoConventionTest extends ChangeNameTest {
     @Test
     public void testFindStudent(){
         System.out.println("Find Student by ID");
-        Student results = newName.findStudent("81348493");
+        Student results = newName.findStudent("81321343 Assignment 1.pdf");
         System.out.println(results);
         assertNotNull(results);
     }
@@ -58,7 +58,7 @@ public class NoConventionTest extends ChangeNameTest {
     @Test
     public void testFindStudentbyName(){
         System.out.println("Find Student by Name");
-        Student results = newName.findStudent("Darrell Rufus");
+        Student results = newName.findStudent("Irving Fitzgerald Info 2603 Assignment 1.pdf ");
         System.out.println(results);
         assertNotNull(results);
     }
