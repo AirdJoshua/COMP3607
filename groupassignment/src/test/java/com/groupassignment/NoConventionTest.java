@@ -27,8 +27,9 @@ public class NoConventionTest extends ChangeNameTest {
     @Test
     public void testChangePdfName(){
         System.out.println("get New name");
-        String expResults = "81348493 Assignment 1 Darrell Rufus Porter.pdf ";
-        String results = newName.changePdfName();
+        //String expResults = "81348493 Assignment 1 Darrell Rufus Porter.pdf ";
+        Student expResults = new Student("601683", "Beth Morales-Horton", "81305512", "beth.moraleshorton@my.uwi.edu", null, null, "100", "Yes", "-", null);
+        Student results = newName.changePdfName();
         assertEquals(expResults,results);
     }
 

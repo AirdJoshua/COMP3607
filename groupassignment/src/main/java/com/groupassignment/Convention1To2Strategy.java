@@ -5,7 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,7 +12,6 @@ import java.util.Scanner;
 public class Convention1To2Strategy extends MissingFiles implements IChangeName{
     private File oldFilename;
     private List<Student> list;
-    private List<Student> submittedStudents = new ArrayList<Student>();
 
     public Convention1To2Strategy(File file, List<Student> students) {
         this.oldFilename = file;
@@ -21,7 +19,7 @@ public class Convention1To2Strategy extends MissingFiles implements IChangeName{
     }
 
     @Override
-    public String changePdfName(){
+    public Student changePdfName(){
         Student student;
         Path toBeRenamedPath = Paths.get(oldFilename.getPath());
         String newFilename;
@@ -30,8 +28,8 @@ public class Convention1To2Strategy extends MissingFiles implements IChangeName{
         try {
             scan = new Scanner(fileName);
         } catch (Exception e) {
-            e.printStackTrace();
-            return "File not found";
+            System.out.println("File not found");
+            return null;
         }
         scan.useDelimiter("_");
         //read myElearning code
@@ -56,28 +54,22 @@ public class Convention1To2Strategy extends MissingFiles implements IChangeName{
                     renamedFiles.mkdir();
                 }
                 Files.copy(toBeRenamedPath, (new File("filesToRename/renamedFiles/" + newFilename).toPath()), StandardCopyOption.REPLACE_EXISTING);
-                return newFilename;
+                return student;
             }
             catch(Exception e){
                 e.printStackTrace();    
             }
         }
         scan.close();  
-        return "student not found"; 
+        return null; 
     }
 
     public Student findStudent(String fileName) {
         for(Student s: list){
             if(fileName.contains(s.getIdentifier().replaceAll("\\s", "").toLowerCase())){
-                submittedStudents.add(s);
                 return s;
             }
         }
         return null;
-    }
-
-    @Override
-    public ArrayList<Student> getSubmittedStudents() {
-        return (ArrayList<Student>) submittedStudents;
     }
 }

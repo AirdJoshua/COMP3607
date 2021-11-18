@@ -27,8 +27,9 @@ public class Convention2RenameTest extends ChangeNameTest {
     @Test
     public void testChangePdfName(){
         System.out.println("get New name");
-        String expResults = "Anna Horton_601727_assignsubmission_file_info 2603 assignment 1.pdf";
-        String results = newName.changePdfName();
+        Student expResults = new Student("601683", "Beth Morales-Horton", "81305512", "beth.moraleshorton@my.uwi.edu", null, null, "100", "Yes", "-", null);
+        //String expResults = "Anna Horton_601727_assignsubmission_file_info 2603 assignment 1.pdf";
+        Student results = newName.changePdfName();
         assertEquals(expResults,results);
     }
 

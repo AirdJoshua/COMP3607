@@ -5,13 +5,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.ArrayList;
 import java.util.List;
 
 public class NoConventionStrategy extends MissingFiles implements IChangeName{
     private File oldFilename;
     private List<Student> list;
-    private List<Student> submittedStudents = new ArrayList<>();
 
     public NoConventionStrategy(File file, List<Student> students) {
         this.oldFilename = file;
@@ -19,7 +17,7 @@ public class NoConventionStrategy extends MissingFiles implements IChangeName{
     }
 
     @Override
-    public String changePdfName() {
+    public Student changePdfName() {
         Student student;
         Path toBeRenamedPath = Paths.get(oldFilename.getPath());
         String newFilename;
@@ -36,33 +34,26 @@ public class NoConventionStrategy extends MissingFiles implements IChangeName{
                     renamedFiles.mkdir();
                 }
                 Files.copy(toBeRenamedPath, (new File("filesToRename/renamedFiles/" + newFilename).toPath()), StandardCopyOption.REPLACE_EXISTING);
-                return newFilename;
+                return student;
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        return "student not found";
+        return null;
     }
 
     public Student findStudent(String fileName) {
         for (Student s : list) {
             if (fileName.contains(s.getIdNumber())) {
-                submittedStudents.add(s);
                 return s;
             }
         }
 
         for (Student s : list) {
             if (fileName.contains(s.getFullName().toLowerCase().replaceAll("\\s", ""))) {
-                submittedStudents.add(s);
                 return s;
             }
         }
         return null;
-    }
-
-    @Override
-    public ArrayList<Student> getSubmittedStudents() {
-        return (ArrayList<Student>) submittedStudents;
     }
 }
