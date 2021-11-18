@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 
-public class Convention1To2Strategy extends MissingFiles implements IChangeName{
+public class Convention1To2Strategy implements IChangeName{
     private File oldFilename;
     private List<Student> list;
 
