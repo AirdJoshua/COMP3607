@@ -7,10 +7,13 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import java.io.File;
 import java.util.List;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class NoConventionTest extends ChangeNameTest {
+public class NoConventionTest{
 
     public NoConventionTest() {
     }
@@ -18,6 +21,18 @@ public class NoConventionTest extends ChangeNameTest {
     private NoConventionStrategy newName;
     private List<Student> students = Student.getStudents("studentDataSheet\\Sample 4 CSV.csv");  
     
+    @BeforeAll
+    public static void setUpClass() {
+    }
+    
+    @AfterAll
+    public static void tearDownClass() {
+    }
+    
+    @AfterEach
+    public void tearDown() {
+    }
+
     @BeforeEach
     public void setUp() {
         File file = new File("81348493 Assignment 1 Darrell Rufus Porter.pdf");

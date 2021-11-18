@@ -7,16 +7,30 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import java.io.File;
 import java.util.List;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class Convention2RenameTest extends ChangeNameTest {
+public class Convention2RenameTest{
     private Convention2RenameStrategy newName;
     private List<Student> students = Student.getStudents("studentDataSheet\\Sample 1 CSV.csv");
 
     public Convention2RenameTest(){
     }
+
+    @BeforeAll
+    public static void setUpClass() {
+    }
     
+    @AfterAll
+    public static void tearDownClass() {
+    }
+    
+    @AfterEach
+    public void tearDown() {
+    }
   
     @BeforeEach
     public void setUp() {
