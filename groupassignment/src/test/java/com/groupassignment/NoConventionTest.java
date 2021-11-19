@@ -1,6 +1,5 @@
 package com.groupassignment;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
@@ -14,7 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class NoConventionTest{
-    private NoConventionStrategy newName;
+    private NoConventionRenameStrategy newName;
     private ArrayList<Student> students = Student.getStudents("../studentDataSheet/Sample 5 CSV.csv");  
     
     public NoConventionTest() {
@@ -45,7 +44,7 @@ public class NoConventionTest{
     @BeforeEach
     public void setUp() {
         File file = new File("81348493 Assignment 1 Darrell Rufus Porter.pdf");
-        newName = new NoConventionStrategy(file, students);
+        newName = new NoConventionRenameStrategy(file, students);
         try{
             file.createNewFile();
         }
@@ -57,8 +56,6 @@ public class NoConventionTest{
     @Test
     public void testChangePdfName(){
         System.out.println("get New name");
-        //String expResults = "81348493 Assignment 1 Darrell Rufus Porter.pdf ";
-        //Student expResults = new Student("601683", "Beth Morales-Horton", "81305512", "beth.moraleshorton@my.uwi.edu", null, null, "100", "Yes", "-", null);
         Student results = newName.changePdfName();
         assertNotNull(results);
     }

@@ -36,7 +36,6 @@ public class Convention1To2Strategy implements IChangeName{
         scan.next();
         //read first and last names
         
-        //String identifier = scan.next();
         String originalName = "";
 
         while(scan.hasNext()){

@@ -7,11 +7,11 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
 
-public class NoConventionStrategy implements IChangeName{
+public class NoConventionRenameStrategy implements IChangeName{
     private File oldFilename;
     private List<Student> list;
 
-    public NoConventionStrategy(File file, List<Student> students){
+    public NoConventionRenameStrategy(File file, List<Student> students){
         this.oldFilename = file;
         this.list = students;
     }

@@ -1,13 +1,17 @@
 package com.groupassignment;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
-public class FileFixer 
-{
+public class FileFixer {
     public static void main( String[] args )
     {
-        ArrayList<Student> students = Student.getStudents("studentDataSheet/Sample 3 CSV.csv");
+        ArrayList<Student> students = Student.getStudents("studentDataSheet/studentData.csv");
+
+        if(students.isEmpty()){
+            System.out.println("No studentData file or studentData file is empty.");
+        }
         ArrayList<Student> submittedStudents = new ArrayList<>();
         Student result;
         RenameFiles renameFiles = new RenameFiles();
@@ -41,7 +45,7 @@ public class FileFixer
                 }
             }
             else{
-                renameContext = new RenameContext(new NoConventionStrategy(file, students));
+                renameContext = new RenameContext(new NoConventionRenameStrategy(file, students));
                 result = renameContext.changePdfName();
 
                 if(result != null){
@@ -51,8 +55,24 @@ public class FileFixer
         }
 
         students.removeAll(submittedStudents);
-        for(Student s: students){
-            System.out.println("Student: " + s.getFullName() + " with ID: " + s.getIdNumber() + " did not submit\n");
+
+        File file = new File("studentDataSheet/missingStudents.txt");
+        
+        try{
+            file.createNewFile();
+            FileWriter writer = new FileWriter(file);
+
+            for(Student s: students){
+                try{
+                    writer.write("Student: " + s.getFullName() + " with ID: " + s.getIdNumber() + " did not submit\n");
+                }
+                catch(Exception e){
+                    System.out.println("Error writing to file");
+                }
+            }
+            writer.close();
+        }catch(Exception e){
+            System.out.println("Error writing to file");
         }
     }
 }

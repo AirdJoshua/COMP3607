@@ -57,7 +57,6 @@ public class Convention1To2Test{
     @Test
     public void testChangePdfName(){
         System.out.println("get New name");
-        //String expResults = "Beth Morales-Horton_601683_assignsubmission_file_81305512.pdf";
         Student results = newName.changePdfName();
         assertNotNull(results);
     }
